@@ -46,59 +46,59 @@
 </template>
 
 <script setup lang="ts" name="dynamicForm">
-import { reactive, ref } from "vue";
-import type { FormInstance } from "element-plus";
+import { reactive, ref } from 'vue'
+import type { FormInstance } from 'element-plus'
 
-const formRef = ref<FormInstance>();
+const formRef = ref<FormInstance>()
 const dynamicValidateForm = reactive<{
-  domains: DomainItem[];
-  email: string;
+  domains: DomainItem[]
+  email: string
 }>({
   domains: [
     {
       key: 1,
-      value: ""
+      value: ''
     }
   ],
-  email: ""
-});
+  email: ''
+})
 
 interface DomainItem {
-  key: number;
-  value: string;
+  key: number
+  value: string
 }
 
 const removeDomain = (item: DomainItem) => {
-  const index = dynamicValidateForm.domains.indexOf(item);
+  const index = dynamicValidateForm.domains.indexOf(item)
   if (index !== -1) {
-    dynamicValidateForm.domains.splice(index, 1);
+    dynamicValidateForm.domains.splice(index, 1)
   }
-};
+}
 
 const addDomain = () => {
   dynamicValidateForm.domains.push({
     key: Date.now(),
-    value: ""
-  });
-};
+    value: ''
+  })
+}
 
 const submitForm = async (formEl: FormInstance | undefined) => {
-  if (!formEl) return;
+  if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log("submit!");
+      console.log('submit!')
     } else {
-      console.log("error submit!", fields);
+      console.log('error submit!', fields)
     }
-  });
-};
+  })
+}
 
 const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return;
-  formEl.resetFields();
-};
+  if (!formEl) return
+  formEl.resetFields()
+}
 </script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>
