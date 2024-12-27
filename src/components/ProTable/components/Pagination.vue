@@ -18,7 +18,7 @@ import { useGlobalStore } from '@/stores/modules/global'
 const globalStore = useGlobalStore()
 
 interface Pageable {
-  pageNum: number
+  pageIndex: number
   pageSize: number
   total: number
 }

@@ -48,7 +48,7 @@ class RequestHttp {
         if (config.headers && typeof config.headers.set === 'function') {
           config.headers.set('Token', userStore.token)
         }
-        console.log('请求config', config)
+        // console.log('请求config', config)
         return config
       },
       (error: AxiosError) => {

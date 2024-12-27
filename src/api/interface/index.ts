@@ -13,14 +13,14 @@ export interface ResultData<T = any> extends Result {
 // 分页响应参数
 export interface ResPage<T> {
   list: T[]
-  pageNum: number
-  pageSize: number
+  PageIndex: number
+  PageSize: number
   total: number
 }
 
 // 分页请求参数
 export interface ReqPage {
-  pageNum: number
+  pageIndex: number
   pageSize: number
 }
 
